@@ -1,0 +1,563 @@
+
+(base) C:\Users\xiangcai- gamers>activate penguin
+
+(penguin) C:\Users\xiangcai- gamers>cd C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master
+
+(penguin) C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master>python train.py --img 640 --batch 16 --epochs 50 --data data.yaml --weights yolov5s.pt
+train: weights=yolov5s.pt, cfg=, data=data.yaml, hyp=data\hyps\hyp.scratch-low.yaml, epochs=50, batch_size=16, imgsz=640, rect=False, resume=False, nosave=False, noval=False, noautoanchor=False, noplots=False, evolve=None, evolve_population=data\hyps, resume_evolve=None, bucket=, cache=None, image_weights=False, device=, multi_scale=False, single_cls=False, optimizer=SGD, sync_bn=False, workers=8, project=runs\train, name=exp, exist_ok=False, quad=False, cos_lr=False, label_smoothing=0.0, patience=100, freeze=[0], save_period=-1, seed=0, local_rank=-1, entity=None, upload_dataset=False, bbox_interval=-1, artifact_alias=latest, ndjson_console=False, ndjson_file=False
+github: skipping check (not a git repository), for updates see https://github.com/ultralytics/yolov5
+YOLOv5  2024-6-22 Python-3.8.19 torch-2.3.1+cpu CPU
+
+hyperparameters: lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.5, cls_pw=1.0, obj=1.0, obj_pw=1.0, iou_t=0.2, anchor_t=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=1.0, mixup=0.0, copy_paste=0.0
+Comet: run 'pip install comet_ml' to automatically track and visualize YOLOv5  runs in Comet
+TensorBoard: Start with 'tensorboard --logdir runs\train', view at http://localhost:6006/
+Downloading https://github.com/ultralytics/yolov5/releases/download/v7.0/yolov5s.pt to yolov5s.pt...
+100%|█████████████████████████████████████████████████████████████████████████████| 14.1M/14.1M [00:01<00:00, 7.83MB/s]
+
+Overriding model.yaml nc=80 with nc=16
+
+                 from  n    params  module                                  arguments
+  0                -1  1      3520  models.common.Conv                      [3, 32, 6, 2, 2]
+  1                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]
+  2                -1  1     18816  models.common.C3                        [64, 64, 1]
+  3                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]
+  4                -1  2    115712  models.common.C3                        [128, 128, 2]
+  5                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]
+  6                -1  3    625152  models.common.C3                        [256, 256, 3]
+  7                -1  1   1180672  models.common.Conv                      [256, 512, 3, 2]
+  8                -1  1   1182720  models.common.C3                        [512, 512, 1]
+  9                -1  1    656896  models.common.SPPF                      [512, 512, 5]
+ 10                -1  1    131584  models.common.Conv                      [512, 256, 1, 1]
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]
+ 13                -1  1    361984  models.common.C3                        [512, 256, 1, False]
+ 14                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]
+ 17                -1  1     90880  models.common.C3                        [256, 128, 1, False]
+ 18                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]
+ 20                -1  1    296448  models.common.C3                        [256, 256, 1, False]
+ 21                -1  1    590336  models.common.Conv                      [256, 256, 3, 2]
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]
+ 23                -1  1   1182720  models.common.C3                        [512, 512, 1, False]
+ 24      [17, 20, 23]  1     56637  models.yolo.Detect                      [16, [[10, 13, 16, 30, 33, 23], [30, 61, 62, 45, 59, 119], [116, 90, 156, 198, 373, 326]], [128, 256, 512]]
+Model summary: 214 layers, 7062781 parameters, 7062781 gradients, 16.1 GFLOPs
+
+Transferred 343/349 items from yolov5s.pt
+optimizer: SGD(lr=0.01) with parameter groups 57 weight(decay=0.0), 60 weight(decay=0.0005), 60 bias
+train: Scanning C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\labels\train... 109 images, 0 bac
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0003.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0005.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0007.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0009.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0011.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0013.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0015.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0017.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0019.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0021.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0023.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0025.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0027.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0029.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0031.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0033.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0035.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0037.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0039.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0041.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0043.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0045.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0047.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0049.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0051.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG0053.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1401.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1403.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1405.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1407.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1409.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1411.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1413.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1415.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1417.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1419.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1421.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1423.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1425.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1427.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1429.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1431.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1433.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1435.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1437.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1439.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1441.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1443.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1445.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1447.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1449.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1451.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1453.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1455.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1457.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1459.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1461.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1463.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1465.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1467.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1469.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1471.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1473.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1475.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1477.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1479.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1481.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1483.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1485.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1487.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1489.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1491.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1493.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1495.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1497.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1499.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1501.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1503.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1505.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1507.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1509.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1511.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1513.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1515.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1517.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1519.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1521.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1523.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1525.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1527.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1529.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1531.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1567.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1569.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1571.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1573.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1575.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1577.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1579.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1581.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1583.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1585.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1587.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1589.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1591.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1593.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1595.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1597.JPG: corrupt JPEG restored and saved
+train: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\train\IMAG1599.JPG: corrupt JPEG restored and saved
+train: New cache created: C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\labels\train.cache
+val: Scanning C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\labels\val... 20 images, 0 backgrou
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG0055.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG0057.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG0059.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1533.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1535.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1537.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1539.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1541.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1543.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1545.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1547.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1549.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1551.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1553.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1555.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1557.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1559.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1561.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1563.JPG: corrupt JPEG restored and saved
+val: WARNING  C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\images\val\IMAG1565.JPG: corrupt JPEG restored and saved
+val: New cache created: C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master\dataset\labels\val.cache
+
+AutoAnchor: 4.46 anchors/target, 0.951 Best Possible Recall (BPR). Anchors are a poor fit to dataset , attempting to improve...
+AutoAnchor: WARNING  Extremely small objects found: 41 of 1544 labels are <3 pixels in size
+AutoAnchor: Running kmeans for 9 anchors on 1544 points...
+AutoAnchor: Evolving anchors with Genetic Algorithm: fitness = 0.7846: 100%|██████████| 1000/1000 [00:01<00:00, 667.37it/s]
+AutoAnchor: thr=0.25: 1.0000 best possible recall, 5.57 anchors past thr
+AutoAnchor: n=9, img_size=640, metric_all=0.370/0.785-mean/best, past_thr=0.515-mean: 5,6, 21,15, 30,23, 49,24, 31,50, 57,36, 85,51, 61,79, 128,147
+AutoAnchor: Done  (optional: update model *.yaml to use these anchors in the future)
+Plotting labels to runs\train\exp6\labels.jpg...
+Image sizes 640 train, 640 val
+Using 8 dataloader workers
+Logging results to runs\train\exp6
+Starting training for 50 epochs...
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       0/49         0G     0.1304    0.08466    0.07719        286        640: 100%|██████████| 7/7 [01:38<00:00, 14.11s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:05<00:00,  5.09s/it]
+                   all         20        262    0.00251    0.00382    0.00126   0.000126
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       1/49         0G     0.1273    0.08797    0.07114        292        640: 100%|██████████| 7/7 [01:18<00:00, 11.27s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.76s/it]
+                   all         20        262     0.0217      0.107     0.0122     0.0028
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       2/49         0G     0.1209    0.08928    0.05938        241        640: 100%|██████████| 7/7 [01:18<00:00, 11.26s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:05<00:00,  5.09s/it]
+                   all         20        262      0.034      0.359     0.0353    0.00819
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       3/49         0G     0.1177    0.09172    0.04237        242        640: 100%|██████████| 7/7 [01:17<00:00, 11.06s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:05<00:00,  5.10s/it]
+                   all         20        262     0.0836     0.0382      0.024    0.00577
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       4/49         0G     0.1095    0.09004    0.02404        277        640: 100%|██████████| 7/7 [01:18<00:00, 11.24s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:05<00:00,  5.70s/it]
+                   all         20        262     0.0411     0.0763       0.02    0.00642
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       5/49         0G     0.1023    0.08499    0.01377        276        640: 100%|██████████| 7/7 [01:17<00:00, 11.11s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:05<00:00,  5.61s/it]
+                   all         20        262      0.134     0.0878     0.0451     0.0135
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       6/49         0G    0.09682    0.07831   0.009413        331        640: 100%|██████████| 7/7 [01:16<00:00, 10.90s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.70s/it]
+                   all         20        262      0.206     0.0725     0.0465     0.0147
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       7/49         0G     0.0941     0.0804   0.007318        310        640: 100%|██████████| 7/7 [01:16<00:00, 10.96s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:05<00:00,  5.17s/it]
+                   all         20        262      0.163     0.0992     0.0503     0.0167
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       8/49         0G    0.09982    0.07297   0.006295        243        640: 100%|██████████| 7/7 [01:16<00:00, 10.91s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.94s/it]
+                   all         20        262      0.126      0.137     0.0481     0.0144
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+       9/49         0G    0.09853    0.07835   0.005647        295        640: 100%|██████████| 7/7 [01:16<00:00, 10.96s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.92s/it]
+                   all         20        262      0.151       0.13     0.0745      0.024
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      10/49         0G    0.09516    0.07766   0.005083        297        640: 100%|██████████| 7/7 [01:16<00:00, 10.98s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.83s/it]
+                   all         20        262      0.152      0.237     0.0872     0.0284
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      11/49         0G    0.09641    0.07621   0.004862        268        640: 100%|██████████| 7/7 [01:15<00:00, 10.83s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.83s/it]
+                   all         20        262      0.189      0.256      0.115     0.0361
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      12/49         0G    0.09833    0.07373   0.004585        330        640: 100%|██████████| 7/7 [01:16<00:00, 10.92s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.86s/it]
+                   all         20        262      0.263      0.237      0.154     0.0373
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      13/49         0G    0.09921    0.07379   0.004386        335        640: 100%|██████████| 7/7 [01:16<00:00, 10.88s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.75s/it]
+                   all         20        262      0.139      0.195     0.0795     0.0193
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      14/49         0G     0.1017    0.06622   0.004487        276        640: 100%|██████████| 7/7 [01:16<00:00, 10.93s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.91s/it]
+                   all         20        262      0.151      0.366      0.107     0.0333
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      15/49         0G     0.0997     0.0716   0.004539        276        640: 100%|██████████| 7/7 [01:16<00:00, 10.90s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.80s/it]
+                   all         20        262      0.276      0.427       0.23     0.0618
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      16/49         0G    0.08985    0.08062   0.004359        265        640: 100%|██████████| 7/7 [01:16<00:00, 10.90s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.83s/it]
+                   all         20        262      0.353      0.351      0.286     0.0735
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      17/49         0G    0.08813    0.08097   0.004303        351        640: 100%|██████████| 7/7 [01:16<00:00, 10.91s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.91s/it]
+                   all         20        262      0.259      0.267      0.228     0.0776
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      18/49         0G    0.08676    0.07273   0.004384        230        640: 100%|██████████| 7/7 [01:16<00:00, 10.98s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.63s/it]
+                   all         20        262      0.404      0.477      0.377      0.142
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      19/49         0G    0.08728    0.07939   0.004575        239        640: 100%|██████████| 7/7 [01:17<00:00, 11.09s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/1 [00:00<?, ?it/s]WARNING  NMS time limit 1.500s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.80s/it]
+                   all         20        262      0.251      0.374      0.235     0.0712
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      20/49         0G    0.08143     0.0763    0.00453        297        640: 100%|██████████| 7/7 [01:16<00:00, 10.93s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.53s/it]
+                   all         20        262      0.481      0.637      0.506       0.17
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      21/49         0G    0.07586    0.07585   0.004387        349        640: 100%|██████████| 7/7 [01:16<00:00, 10.92s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.13s/it]
+                   all         20        262      0.407      0.645      0.469      0.157
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      22/49         0G    0.07611     0.0801   0.004207        363        640: 100%|██████████| 7/7 [01:16<00:00, 10.98s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.47s/it]
+                   all         20        262      0.488      0.584      0.535      0.201
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      23/49         0G    0.07687    0.07673   0.003972        316        640: 100%|██████████| 7/7 [01:16<00:00, 10.96s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.95s/it]
+                   all         20        262       0.67      0.649      0.675       0.22
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      24/49         0G    0.07592    0.08299   0.003984        395        640: 100%|██████████| 7/7 [01:16<00:00, 10.96s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.92s/it]
+                   all         20        262      0.691      0.687      0.738      0.292
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      25/49         0G    0.06917    0.07298   0.003928        250        640: 100%|██████████| 7/7 [01:16<00:00, 10.93s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.19s/it]
+                   all         20        262      0.518      0.631      0.576      0.207
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      26/49         0G    0.07327    0.07102   0.003844        290        640: 100%|██████████| 7/7 [01:16<00:00, 10.97s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.80s/it]
+                   all         20        262      0.519      0.654      0.572      0.229
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      27/49         0G    0.06899    0.07742   0.003794        283        640: 100%|██████████| 7/7 [01:16<00:00, 10.99s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.83s/it]
+                   all         20        262      0.576      0.595      0.575      0.204
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      28/49         0G    0.07146    0.07073   0.003575        326        640: 100%|██████████| 7/7 [01:16<00:00, 10.99s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.63s/it]
+                   all         20        262      0.708      0.771      0.765      0.358
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      29/49         0G    0.06307    0.07261   0.003544        308        640: 100%|██████████| 7/7 [01:16<00:00, 10.95s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.00s/it]
+                   all         20        262      0.561      0.595      0.572      0.197
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      30/49         0G    0.06897    0.06987   0.003354        360        640: 100%|██████████| 7/7 [01:16<00:00, 10.97s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.88s/it]
+                   all         20        262      0.468      0.666      0.566      0.218
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      31/49         0G    0.06692    0.07691   0.003474        298        640: 100%|██████████| 7/7 [01:17<00:00, 11.00s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.75s/it]
+                   all         20        262      0.687      0.687      0.755      0.311
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      32/49         0G    0.06547    0.07703    0.00334        343        640: 100%|██████████| 7/7 [01:17<00:00, 11.01s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.55s/it]
+                   all         20        262      0.874       0.79       0.86      0.401
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      33/49         0G     0.0635     0.0835   0.003236        278        640: 100%|██████████| 7/7 [01:17<00:00, 11.05s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.70s/it]
+                   all         20        262      0.742      0.748      0.772      0.348
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      34/49         0G    0.06337     0.0781   0.003214        218        640: 100%|██████████| 7/7 [01:16<00:00, 10.98s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.78s/it]
+                   all         20        262      0.703      0.775      0.767      0.338
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      35/49         0G    0.06232    0.07967   0.003041        338        640: 100%|██████████| 7/7 [01:16<00:00, 10.99s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.72s/it]
+                   all         20        262      0.828      0.798      0.838      0.389
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      36/49         0G    0.06067    0.07283   0.003053        259        640: 100%|██████████| 7/7 [01:19<00:00, 11.42s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.69s/it]
+                   all         20        262      0.834      0.766      0.832      0.397
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      37/49         0G    0.06044    0.07527   0.002982        358        640: 100%|██████████| 7/7 [01:20<00:00, 11.46s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:04<00:00,  4.29s/it]
+                   all         20        262      0.721      0.769      0.793      0.355
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      38/49         0G    0.06006    0.07366   0.002903        232        640: 100%|██████████| 7/7 [01:22<00:00, 11.78s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.70s/it]
+                   all         20        262      0.737      0.733      0.777      0.351
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      39/49         0G     0.0584    0.07739   0.002912        223        640: 100%|██████████| 7/7 [01:17<00:00, 11.04s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.45s/it]
+                   all         20        262      0.867      0.823      0.883      0.413
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      40/49         0G    0.05835    0.07447   0.002796        255        640: 100%|██████████| 7/7 [01:17<00:00, 11.04s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.50s/it]
+                   all         20        262      0.893      0.809       0.89      0.452
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      41/49         0G    0.05393    0.06735   0.002709        306        640: 100%|██████████| 7/7 [01:17<00:00, 11.05s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.47s/it]
+                   all         20        262      0.807      0.779      0.837      0.411
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      42/49         0G    0.05704    0.07482   0.002681        320        640: 100%|██████████| 7/7 [01:17<00:00, 11.03s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.55s/it]
+                   all         20        262      0.858      0.809      0.873      0.424
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      43/49         0G    0.05469    0.07674   0.002577        324        640: 100%|██████████| 7/7 [01:17<00:00, 11.04s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.52s/it]
+                   all         20        262      0.859      0.802      0.864       0.43
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      44/49         0G     0.0526    0.06586   0.002559        320        640: 100%|██████████| 7/7 [01:17<00:00, 11.07s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.52s/it]
+                   all         20        262      0.884      0.824      0.899      0.476
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      45/49         0G    0.05334    0.07466    0.00252        263        640: 100%|██████████| 7/7 [01:16<00:00, 10.98s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.53s/it]
+                   all         20        262      0.887      0.824      0.899      0.458
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      46/49         0G     0.0519    0.06926   0.002469        253        640: 100%|██████████| 7/7 [01:18<00:00, 11.20s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.64s/it]
+                   all         20        262      0.908      0.828      0.899      0.472
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      47/49         0G    0.05464    0.07642   0.002415        313        640: 100%|██████████| 7/7 [01:17<00:00, 11.13s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.44s/it]
+                   all         20        262      0.901      0.833        0.9      0.475
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      48/49         0G    0.05184    0.06828    0.00239        280        640: 100%|██████████| 7/7 [01:18<00:00, 11.19s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.60s/it]
+                   all         20        262      0.904       0.84      0.905      0.485
+
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      49/49         0G    0.05181    0.07122   0.002357        241        640: 100%|██████████| 7/7 [01:17<00:00, 11.10s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.53s/it]
+                   all         20        262      0.901      0.828      0.899      0.486
+
+50 epochs completed in 1.144 hours.
+Optimizer stripped from runs\train\exp6\weights\last.pt, 14.5MB
+Optimizer stripped from runs\train\exp6\weights\best.pt, 14.5MB
+
+Validating runs\train\exp6\weights\best.pt...
+Fusing layers...
+Model summary: 157 layers, 7053277 parameters, 0 gradients, 15.9 GFLOPs
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 1/1 [00:03<00:00,  3.24s/it]
+                   all         20        262      0.901      0.829      0.899      0.486
+        Gentoo penguin         20        262      0.901      0.829      0.899      0.486
+Results saved to runs\train\exp6
+
+(penguin) C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master>pip install Pillow
+Requirement already satisfied: Pillow in c:\users\xiangcai- gamers\miniconda3\envs\penguin\lib\site-packages (10.3.0)
+
+(penguin) C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master>jupyter notebook
+[W 2024-06-27 19:36:44.759 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[W 2024-06-27 19:36:44.837 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2024-06-27 19:36:44.837 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2024-06-27 19:36:44.853 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2024-06-27 19:36:44.853 ServerApp] jupyterlab | extension was successfully linked.
+[I 2024-06-27 19:36:44.869 ServerApp] notebook | extension was successfully linked.
+[I 2024-06-27 19:36:45.134 ServerApp] notebook_shim | extension was successfully linked.
+[I 2024-06-27 19:36:45.181 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2024-06-27 19:36:45.197 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2024-06-27 19:36:45.197 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2024-06-27 19:36:45.197 LabApp] JupyterLab extension loaded from C:\Users\xiangcai- gamers\miniconda3\envs\penguin\lib\site-packages\jupyterlab
+[I 2024-06-27 19:36:45.197 LabApp] JupyterLab application directory is C:\Users\xiangcai- gamers\miniconda3\envs\penguin\share\jupyter\lab
+[I 2024-06-27 19:36:45.197 LabApp] Extension Manager is 'pypi'.
+[I 2024-06-27 19:36:45.197 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2024-06-27 19:36:45.197 ServerApp] notebook | extension was successfully loaded.
+[I 2024-06-27 19:36:45.197 ServerApp] Serving notebooks from local directory: C:\Users\xiangcai- gamers\penguin\yolov5-master\yolov5-master
+[I 2024-06-27 19:36:45.197 ServerApp] Jupyter Server 2.14.1 is running at:
+[I 2024-06-27 19:36:45.197 ServerApp] http://localhost:8888/tree?token=a07637041324ee23d146e826cf8602b7628124660daf9425
+[I 2024-06-27 19:36:45.212 ServerApp]     http://127.0.0.1:8888/tree?token=a07637041324ee23d146e826cf8602b7628124660daf9425
+[I 2024-06-27 19:36:45.212 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2024-06-27 19:36:45.290 ServerApp]
+
+    To access the server, open this file in a browser:
+        file:///C:/Users/xiangcai-%20gamers/AppData/Roaming/jupyter/runtime/jpserver-13772-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/tree?token=a07637041324ee23d146e826cf8602b7628124660daf9425
+        http://127.0.0.1:8888/tree?token=a07637041324ee23d146e826cf8602b7628124660daf9425
+[I 2024-06-27 19:36:45.415 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[I 2024-06-27 19:37:01.015 ServerApp] Creating new notebook in
+[I 2024-06-27 19:37:06.008 ServerApp] Kernel started: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:37:07.043 ServerApp] Connecting to kernel 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211.
+[I 2024-06-27 19:39:03.325 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:41:28.867 ServerApp] Kernel interrupted: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:42:30.239 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:42:44.363 ServerApp] Kernel interrupted: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:42:45.494 ServerApp] Starting buffering for 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211:80db63ca-027c-4877-94bd-91b4d06441a1
+[I 2024-06-27 19:42:49.198 ServerApp] Connecting to kernel 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211.
+[I 2024-06-27 19:44:49.315 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:46:42.163 ServerApp] Kernel interrupted: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:46:44.417 ServerApp] Kernel interrupted: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:46:49.347 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:47:01.699 ServerApp] Kernel interrupted: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:47:03.188 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:47:04.177 ServerApp] Starting buffering for 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211:a90394a8-3148-4eba-8eac-acd088cfdb04
+[I 2024-06-27 19:47:07.663 ServerApp] Connecting to kernel 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211.
+[I 2024-06-27 19:47:19.474 ServerApp] Starting buffering for 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211:45e9b9ac-8188-4112-9f20-260ae672ff93
+[I 2024-06-27 19:47:25.329 ServerApp] Connecting to kernel 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211.
+[I 2024-06-27 19:48:43.350 ServerApp] Kernel shutdown: 73c2bbdb-cd1f-435d-aeb4-25d90f7f2211
+[I 2024-06-27 19:48:55.656 ServerApp] Kernel started: 8b3789a3-148c-406a-a459-6d8f4a600932
+[I 2024-06-27 19:48:56.682 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 19:49:25.277 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:51:25.309 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:53:08.407 ServerApp] Kernel interrupted: 8b3789a3-148c-406a-a459-6d8f4a600932
+[I 2024-06-27 19:53:12.555 ServerApp] Starting buffering for 8b3789a3-148c-406a-a459-6d8f4a600932:66d18110-de10-4ca9-852a-e13635488ea0
+[I 2024-06-27 19:53:14.300 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 19:54:01.709 ServerApp] Starting buffering for 8b3789a3-148c-406a-a459-6d8f4a600932:1daf09a3-e849-4837-af6d-05ac5ac1b3ee
+[I 2024-06-27 19:54:04.724 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 19:54:35.773 ServerApp] Starting buffering for 8b3789a3-148c-406a-a459-6d8f4a600932:f3d80b5c-165b-495d-b245-0ba623fa389e
+[I 2024-06-27 19:55:11.430 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 19:55:36.958 ServerApp] Kernel restarted: 8b3789a3-148c-406a-a459-6d8f4a600932
+[I 2024-06-27 19:55:36.962 ServerApp] Starting buffering for 8b3789a3-148c-406a-a459-6d8f4a600932:c918ef5a-68ca-4260-adb8-f06d717725cd
+[I 2024-06-27 19:55:36.964 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 19:55:36.965 ServerApp] Restoring connection for 8b3789a3-148c-406a-a459-6d8f4a600932:c918ef5a-68ca-4260-adb8-f06d717725cd
+[I 2024-06-27 19:57:11.375 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 19:58:03.599 ServerApp] Kernel restarted: 8b3789a3-148c-406a-a459-6d8f4a600932
+[I 2024-06-27 19:58:03.604 ServerApp] Starting buffering for 8b3789a3-148c-406a-a459-6d8f4a600932:c918ef5a-68ca-4260-adb8-f06d717725cd
+[I 2024-06-27 19:58:03.607 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 19:58:03.607 ServerApp] Restoring connection for 8b3789a3-148c-406a-a459-6d8f4a600932:c918ef5a-68ca-4260-adb8-f06d717725cd
+[I 2024-06-27 19:59:11.410 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:06:34.839 ServerApp] Kernel restarted: 8b3789a3-148c-406a-a459-6d8f4a600932
+[I 2024-06-27 20:06:34.844 ServerApp] Starting buffering for 8b3789a3-148c-406a-a459-6d8f4a600932:c918ef5a-68ca-4260-adb8-f06d717725cd
+[I 2024-06-27 20:06:34.847 ServerApp] Connecting to kernel 8b3789a3-148c-406a-a459-6d8f4a600932.
+[I 2024-06-27 20:06:34.847 ServerApp] Restoring connection for 8b3789a3-148c-406a-a459-6d8f4a600932:c918ef5a-68ca-4260-adb8-f06d717725cd
+[I 2024-06-27 20:07:11.461 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:09:11.829 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:11:12.613 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:15:13.416 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:17:14.198 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:27:14.599 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:29:15.036 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:45:23.726 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:53:26.717 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:55:27.505 ServerApp] Saving file at /Untitled.ipynb
+[I 2024-06-27 20:57:28.349 ServerApp] Saving file at /Untitled.ipynb
